@@ -136,7 +136,7 @@ DefaultRotorDicts = [
 		'X' : 'R',
 		'Y' : 'C',
 		'Z' : 'J',
-		'Knock' : 19,
+		'Knock' : 18,
 	},
 	{#Rotor II
 		'A' : 'A',
@@ -165,7 +165,7 @@ DefaultRotorDicts = [
 		'X' : 'V',
 		'Y' : 'O',
 		'Z' : 'E',
-		'Knock' : 6,
+		'Knock' : 5,
 	},
 	{#Rotor III
 		'A' : 'B',
@@ -194,6 +194,6 @@ DefaultRotorDicts = [
 		'X' : 'S',
 		'Y' : 'Q',
 		'Z' : 'O',
-		'Knock' : 23,
+		'Knock' : 22,
 	}
 	]

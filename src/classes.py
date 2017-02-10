@@ -63,11 +63,11 @@ class Enigma:
 	def encrypt(self,char):
 
 		char.set(self.crosover[char.letter])
-
+		
 		char.set(self.rotors[2].encrypt(char))
 		char.set(self.rotors[1].encrypt(char, False, False, self.rotors[2]))
 		char.set(self.rotors[0].encrypt(char, False, False, self.rotors[1]))
-		
+
 		char.set(self.reflector[char.letter])
 
 		char.set(self.rotors[0].encrypt(char, True, True))
