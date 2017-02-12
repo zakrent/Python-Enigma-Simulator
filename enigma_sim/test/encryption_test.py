@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 import unittest, sys
 sys.path.append('..')
 from classes import *
