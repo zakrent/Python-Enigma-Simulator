@@ -1,4 +1,4 @@
-from classes import *
+from classes import Enigma
 #Debugging
 x = Enigma()
 x.rotors[2].position = 0
