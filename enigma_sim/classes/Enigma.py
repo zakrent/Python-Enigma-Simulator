@@ -1,10 +1,10 @@
 from .Rotor import *
 
 class Enigma:
-	def __init__(self):
+	def __init__(self, rotorsNumbers):
 		self.crosover = DefaultCrossover
 		self.reflector = DefaultReflector
-		self.rotorsNumbers = [1, 2, 3]
+		self.rotorsNumbers = rotorsNumbers
 		self.numberOfRotors = len(self.rotorsNumbers)
 		self.rotors = []
 
@@ -22,15 +22,15 @@ class Enigma:
 			char = value
 			char.set(self.crosover[char.letter])
 
-			char.set(self.rotors[2].encrypt(char))
-			char.set(self.rotors[1].encrypt(char, False, False, self.rotors[2]))
-			char.set(self.rotors[0].encrypt(char, False, False, self.rotors[1]))
+			previousRotor = None
+			for i in range(len(self.rotors)):
+				char.set(self.rotors[len(self.rotors)-i-1].encrypt(char, False, False, previousRotor))
+				previousRotor = self.rotors[len(self.rotors)-i-1]
 
 			char.set(self.reflector[char.letter])
 
-			char.set(self.rotors[0].encrypt(char, True, True))
-			char.set(self.rotors[1].encrypt(char, True, True))
-			char.set(self.rotors[2].encrypt(char, True, True))
+			for i in range(len(self.rotors)):
+				char.set(self.rotors[i].encrypt(char, True, True))
 
 			char.set(self.crosover[char.letter])
 
