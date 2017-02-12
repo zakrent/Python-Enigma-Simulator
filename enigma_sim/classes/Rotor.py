@@ -7,7 +7,9 @@ class Rotor:
 		self.invWiring = {v: k for k, v in DefaultRotorDicts[rotorNumber].items()}
 		self.position = 0
 	def encrypt(self, char, noRotation = False, inverted = False, prevRotor = None):
-
+		if type(char) != Char:
+			raise ValueError('Rotor.encrypt() accepts only Char type')
+			
 		if not noRotation:
 			if not prevRotor:
 				self.position += 1
