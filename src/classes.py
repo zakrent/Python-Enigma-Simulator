@@ -60,20 +60,28 @@ class Enigma:
 			self.rotors.append(Rotor(i-1))
 
 
-	def encrypt(self,char):
+	def encrypt(self,value):
+		if type(value) == str:
+			finalStr = ''
+			for letter in value.upper():
+				finalStr += self.encrypt(Char(letter)).letter
+			return finalStr
+		elif type(value) == Char:
+			char = value
+			char.set(self.crosover[char.letter])
 
-		char.set(self.crosover[char.letter])
-		
-		char.set(self.rotors[2].encrypt(char))
-		char.set(self.rotors[1].encrypt(char, False, False, self.rotors[2]))
-		char.set(self.rotors[0].encrypt(char, False, False, self.rotors[1]))
+			char.set(self.rotors[2].encrypt(char))
+			char.set(self.rotors[1].encrypt(char, False, False, self.rotors[2]))
+			char.set(self.rotors[0].encrypt(char, False, False, self.rotors[1]))
 
-		char.set(self.reflector[char.letter])
+			char.set(self.reflector[char.letter])
 
-		char.set(self.rotors[0].encrypt(char, True, True))
-		char.set(self.rotors[1].encrypt(char, True, True))
-		char.set(self.rotors[2].encrypt(char, True, True))
+			char.set(self.rotors[0].encrypt(char, True, True))
+			char.set(self.rotors[1].encrypt(char, True, True))
+			char.set(self.rotors[2].encrypt(char, True, True))
 
-		char.set(self.crosover[char.letter])
+			char.set(self.crosover[char.letter])
 
-		return char
+			return char
+		else:
+			raise ValueError('Enigma.encrypt() accepts only str or Char type')
