@@ -37,3 +37,7 @@ class Enigma:
 			return char
 		else:
 			raise ValueError('Enigma.encrypt() accepts only str or Char type')
+
+	def setRotorPos(self, rotor, position):
+		self.rotors[rotor].position = position
+		return True

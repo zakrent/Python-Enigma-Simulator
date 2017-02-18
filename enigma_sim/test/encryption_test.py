@@ -2,7 +2,7 @@ import unittest, sys
 sys.path.append('..')
 from classes import *
 
-class TestMarkdownPy(unittest.TestCase):
+class Test(unittest.TestCase):
 
 	def test_enigma_encryption(self):
 		enigma = Enigma([1, 2, 3])
