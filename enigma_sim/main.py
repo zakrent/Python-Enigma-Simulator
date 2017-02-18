@@ -20,7 +20,7 @@ class GUI(tk.Frame):
 		self.textInput = tk.Text(master, height = 5, width = 50)
 		self.textInput.pack( side = tk.BOTTOM)
 
-		self.letters = ('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T','U','V','W','X','Y','Z')
+		self.letters = ('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z')
 
 		self.rotorsPositions = []
 		for i in range(3):
