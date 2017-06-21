@@ -27,7 +27,7 @@ class GUI(tk.Frame):
 			self.rotorsPositions.append(tk.Spinbox(master,values = self.letters, width = 1, command=self.changeRotorPos))
 			self.rotorsPositions[i].pack(side = tk.LEFT)
 
-		self.encryptButton = tk.Button(master, text ="Encrypt", height = 1, command = self.encrypt)
+		self.encryptButton = tk.Button(master, text ="Encrypt/Decrypt", height = 1, command = self.encrypt)
 		self.encryptButton.pack(side = tk.RIGHT)
 
 		self.encryptButton = tk.Button(master, text ="Set crosover(INOP)", height = 1, command = None)
